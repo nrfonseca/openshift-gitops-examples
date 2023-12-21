@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: nats-message-sender
-  argocd.argoproj.io/hook: PostSync
+  argocd.argoproj.io/hook: SyncFail
   argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
