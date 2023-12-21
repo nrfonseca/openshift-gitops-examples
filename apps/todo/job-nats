@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: nats-message-sender
+  argocd.argoproj.io/hook: PostSync
+  argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    metadata:
+      name: nats-message-sender
+    spec:
+      containers:
+      - name: message-sender
+        image: your-container-image:tag # Replace with your container image
+        command: ["bash", "-c", "nats-pub my-subject 'Your message'"] # Modify with your NATS server URL, subject name, and message
+      restartPolicy: Never
