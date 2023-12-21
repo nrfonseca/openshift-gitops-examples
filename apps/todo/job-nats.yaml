@@ -3,6 +3,7 @@ kind: Job
 metadata:
   generateName: nats-message-sender-
   annotations:
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/hook: SyncFail
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
